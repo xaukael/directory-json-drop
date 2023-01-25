@@ -3,11 +3,13 @@ Hooks.on('renderSidebarDirectory', (app, html)=>{
           event.originalEvent.preventDefault();
           const files = event.originalEvent.dataTransfer.files;
           if (!files[0]) return true;
-          const reader = new FileReader();
-          reader.addEventListener("load", () => {
-            let text = reader.result;
-            game[app.tabName].documentClass.create(JSON.parse(text));
-          }, false);
-          reader.readAsText(files[0]);
+          for (let file of files) {
+            const reader = new FileReader();
+            reader.addEventListener("load", () => {
+              try { game[app.tabName].documentClass.create(JSON.parse(reader.result)); } catch (err) {console.log(err)}
+            }, false);
+            reader.readAsText(file);
+          }
+          
   });
 });

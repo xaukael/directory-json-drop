@@ -5,7 +5,7 @@
   "title": "Directory JSON Drop",
   "description": "Grid for managing macro hotbars of all users",
   "authors": [{"name":"Xaukael"}],
-  "version": "1.0.0",
+  "version": "1.0.1",
 	"socket": true,
   "compatibility": {
       "minimum": "10",
