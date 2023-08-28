@@ -1,4 +1,4 @@
-Hooks.on('renderSidebarDirectory', (app, html)=>{
+Hooks.on('renderSidebarTab', (app, html)=>{
   html.find('.directory-list').on('drop', async function(event){
           event.originalEvent.preventDefault();
           const files = event.originalEvent.dataTransfer.files;
